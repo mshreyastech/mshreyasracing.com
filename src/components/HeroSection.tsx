@@ -48,7 +48,7 @@ export const HeroSection = () => {
             className="font-heading font-bold leading-tight mb-6"
           >
             <span className="text-5xl md:text-7xl lg:text-8xl text-foreground block">SHREYAS</span>
-            <span className="text-2xl md:text-3xl lg:text-4xl text-gradient-racing block mt-2">MEENAKSHISUNDAR</span>
+            <span className="text-xl md:text-2xl lg:text-3xl text-gradient-racing block mt-2">MEENAKSHI SUNDAR</span>
           </motion.h1>
 
           <motion.p

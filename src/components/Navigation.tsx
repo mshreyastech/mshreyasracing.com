@@ -38,7 +38,7 @@ export const Navigation = () => {
             <img src="/sm-logo.jpg" alt="SM Logo" className="h-10 w-10 rounded-full object-cover" />
             <div className="hidden sm:flex flex-col">
               <span className="text-xl font-heading font-bold text-foreground leading-none">SHREYAS</span>
-              <span className="text-xs font-heading text-muted-foreground leading-none mt-0.5">MEENAKSHISUNDAR</span>
+              <span className="text-xs font-heading text-muted-foreground leading-none mt-0.5">MEENAKSHI SUNDAR</span>
             </div>
           </a>
 

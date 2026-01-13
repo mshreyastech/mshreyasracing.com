@@ -18,7 +18,7 @@ export const Footer = () => {
               <img src="/sm-logo.jpg" alt="SM Logo" className="h-12 w-12 rounded-full object-cover" />
               <div className="flex flex-col">
                 <span className="text-2xl font-heading font-bold text-foreground leading-none">SHREYAS</span>
-                <span className="text-sm font-heading text-muted-foreground leading-none mt-0.5">MEENAKSHISUNDAR</span>
+                <span className="text-sm font-heading text-muted-foreground leading-none mt-0.5">MEENAKSHI SUNDAR</span>
               </div>
             </div>
             <p className="text-muted-foreground text-sm font-body">
