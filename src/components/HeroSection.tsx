@@ -45,13 +45,10 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-tight mb-6"
+            className="font-heading font-bold leading-tight mb-6"
           >
-            <span className="text-foreground">SHREYAS</span>
-            <br />
-            <span className="text-gradient-racing">MEENAKSHI</span>
-            <br />
-            <span className="text-foreground">SUNDAR</span>
+            <span className="text-5xl md:text-7xl lg:text-8xl text-foreground block">SHREYAS</span>
+            <span className="text-2xl md:text-3xl lg:text-4xl text-gradient-racing block mt-2">MEENAKSHISUNDAR</span>
           </motion.h1>
 
           <motion.p
@@ -97,11 +94,11 @@ export const HeroSection = () => {
               <span className="text-sm hidden sm:inline">mshreyas2009@gmail.com</span>
             </a>
             <a 
-              href="tel:+918754427475" 
+              href="tel:+918220070938" 
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <Phone size={18} />
-              <span className="text-sm hidden sm:inline">+91 8754427475</span>
+              <span className="text-sm hidden sm:inline">+91-8220070938</span>
             </a>
             <a 
               href="https://instagram.com/m_shreyas09" 

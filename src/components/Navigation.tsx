@@ -34,11 +34,12 @@ export const Navigation = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2">
-            <span className="text-2xl font-heading font-bold text-gradient-racing">SM</span>
-            <span className="hidden sm:block text-sm font-heading text-muted-foreground">
-              SHREYAS M.
-            </span>
+          <a href="#home" className="flex items-center gap-3">
+            <img src="/sm-logo.jpg" alt="SM Logo" className="h-10 w-10 rounded-full object-cover" />
+            <div className="hidden sm:flex flex-col">
+              <span className="text-xl font-heading font-bold text-foreground leading-none">SHREYAS</span>
+              <span className="text-xs font-heading text-muted-foreground leading-none mt-0.5">MEENAKSHISUNDAR</span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
