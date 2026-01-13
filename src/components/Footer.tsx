@@ -14,9 +14,12 @@ export const Footer = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-3xl font-heading font-bold text-gradient-racing">SM</span>
-              <span className="font-heading text-foreground">SHREYAS MEENAKSHISUNDAR</span>
+            <div className="flex items-center gap-3 mb-2">
+              <img src="/sm-logo.jpg" alt="SM Logo" className="h-12 w-12 rounded-full object-cover" />
+              <div className="flex flex-col">
+                <span className="text-2xl font-heading font-bold text-foreground leading-none">SHREYAS</span>
+                <span className="text-sm font-heading text-muted-foreground leading-none mt-0.5">MEENAKSHISUNDAR</span>
+              </div>
             </div>
             <p className="text-muted-foreground text-sm font-body">
               Race Car Driver • Chennai, India
@@ -55,7 +58,7 @@ export const Footer = () => {
               <Mail className="h-5 w-5" />
             </a>
             <a 
-              href="tel:+918754427475"
+              href="tel:+918220070938"
               className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
             >
               <Phone className="h-5 w-5" />
