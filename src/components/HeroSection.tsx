@@ -1,26 +1,12 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, Instagram, Play, Volume2, VolumeX } from 'lucide-react';
+import { ArrowRight, Mail, Phone, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import shreyasHero from '@/assets/shreyas-hero.jpg';
 
-const YOUTUBE_VIDEO_ID = 'viQC-6xoJ3E';
-
 export const HeroSection = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-
-  useEffect(() => {
-    // Check if video loads
-    const timer = setTimeout(() => {
-      if (!videoLoaded) {
-        setVideoLoaded(false);
-      }
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, [videoLoaded]);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <section id="home" className="min-h-screen relative flex items-center overflow-hidden">
@@ -28,17 +14,19 @@ export const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50 z-10" />
         
-        {/* YouTube Video Background */}
+        {/* Video Background */}
         <div className="absolute inset-0 overflow-hidden">
-          <iframe
-            ref={iframeRef}
-            src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] pointer-events-none"
-            style={{ minWidth: '200%', minHeight: '200%' }}
-            allow="autoplay; encrypted-media"
-            onLoad={() => setVideoLoaded(true)}
-            title="Racing Background Video"
-          />
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            onLoadedData={() => setVideoLoaded(true)}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
+          >
+            <source src="/videos/hero-banner.mp4" type="video/mp4" />
+          </video>
           
           {/* Fallback Image - shows if video doesn't load */}
           {!videoLoaded && (
@@ -54,20 +42,6 @@ export const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
       </div>
-
-      {/* Video indicator */}
-      {videoLoaded && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="absolute top-24 right-4 z-30 flex items-center gap-2"
-        >
-          <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-border">
-            <Play size={14} className="text-primary" />
-            <span className="text-xs text-muted-foreground uppercase tracking-wider">Live</span>
-          </div>
-        </motion.div>
-      )}
 
       {/* Decorative racing elements */}
       <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4 z-20">
