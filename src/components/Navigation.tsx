@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import smLogo from '@/assets/sm-logo.jpg';
+
 const navLinks = [{
   href: '#home',
   label: 'Home'
@@ -18,9 +20,11 @@ const navLinks = [{
   href: '#contact',
   label: 'Contact'
 }];
+
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -28,6 +32,7 @@ export const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
   return <motion.nav initial={{
     y: -100
   }} animate={{
@@ -35,17 +40,23 @@ export const Navigation = () => {
   }} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          
+          {/* Logo - Left Corner */}
+          <a href="#home" className="flex items-center gap-2">
+            <img src={smLogo} alt="SM Logo" className="h-12 w-12 rounded-full object-cover border-2 border-primary" />
+            <div className="hidden sm:flex flex-col">
+              <span className="font-heading text-lg font-bold text-foreground leading-tight">SHREYAS</span>
+              <span className="font-heading text-[10px] text-muted-foreground tracking-widest">MEENAKSHI SUNDAR</span>
+            </div>
+          </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
             {navLinks.map(link => <a key={link.href} href={link.href} className="font-heading text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">
                 {link.label}
               </a>)}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Right */}
           <div className="hidden md:block">
             <Button asChild variant="default" className="bg-gradient-racing hover:opacity-90 font-heading uppercase tracking-wider">
               <a href="#contact">Contact Me</a>
