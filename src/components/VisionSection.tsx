@@ -120,6 +120,37 @@ export const VisionSection = () => {
               }}
             >
               India
+              {/* Tricolor Underline */}
+              <motion.span
+                className="absolute -bottom-1 left-0 h-1 rounded-full"
+                style={{
+                  background: 'linear-gradient(90deg, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%)',
+                  boxShadow: '0 0 8px rgba(255, 153, 51, 0.6), 0 0 8px rgba(19, 136, 8, 0.6)'
+                }}
+                initial={{ width: 0 }}
+                whileInView={{ width: '100%' }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
+              />
+              {/* Animated shimmer on underline */}
+              <motion.span
+                className="absolute -bottom-1 left-0 h-1 w-full rounded-full overflow-hidden"
+                style={{ opacity: 0.6 }}
+              >
+                <motion.span
+                  className="absolute inset-0 h-full w-8"
+                  style={{
+                    background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent)'
+                  }}
+                  animate={{ x: ['-100%', '200%'] }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    repeatDelay: 1
+                  }}
+                />
+              </motion.span>
             </motion.span>
             {' '}Globally 🇮🇳
           </h3>
