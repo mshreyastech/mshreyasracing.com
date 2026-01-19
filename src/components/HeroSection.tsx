@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Mail, Phone, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import shreyasHero from '@/assets/shreyas-hero.jpg';
@@ -7,11 +7,26 @@ import shreyasHero from '@/assets/shreyas-hero.jpg';
 export const HeroSection = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  // Parallax scroll effect
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section id="home" className="min-h-screen relative flex items-center overflow-hidden">
-      {/* Video/Image Background */}
-      <div className="absolute inset-0 z-0">
+    <section ref={sectionRef} id="home" className="min-h-screen relative flex items-center overflow-hidden">
+      {/* Video/Image Background with Parallax */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        style={{ y: backgroundY, scale: backgroundScale }}
+      >
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50 z-10" />
         
         {/* Video Background */}
@@ -41,10 +56,13 @@ export const HeroSection = () => {
         {/* Overlay gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
-      </div>
+      </motion.div>
 
-      {/* Decorative racing elements */}
-      <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4 z-20">
+      {/* Decorative racing elements with parallax */}
+      <motion.div 
+        className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4 z-20"
+        style={{ y: contentY, opacity }}
+      >
         <motion.div 
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -58,7 +76,7 @@ export const HeroSection = () => {
           transition={{ duration: 2, repeat: Infinity, delay: 1 }}
           className="w-2 h-2 rounded-full bg-accent glow-accent" 
         />
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="container mx-auto px-4 lg:px-8 relative z-20 pt-20">

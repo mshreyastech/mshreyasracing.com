@@ -1,15 +1,97 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { Flag } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
+import { Flag, Volume2, VolumeX } from 'lucide-react';
 
 export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [progress, setProgress] = useState(0);
+  const [soundEnabled, setSoundEnabled] = useState(false);
+  const [soundLoading, setSoundLoading] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Generate and play engine sound
+  const playEngineSound = async () => {
+    if (soundLoading) return;
+    
+    setSoundLoading(true);
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/elevenlabs-sfx`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          },
+          body: JSON.stringify({ 
+            prompt: "Formula 1 race car engine revving, high-pitched powerful V8 engine acceleration, intense motorsport racing sound",
+            duration: 8
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`SFX request failed: ${response.status}`);
+      }
+
+      const audioBlob = await response.blob();
+      const audioUrl = URL.createObjectURL(audioBlob);
+      
+      if (audioRef.current) {
+        audioRef.current.pause();
+        URL.revokeObjectURL(audioRef.current.src);
+      }
+      
+      const audio = new Audio(audioUrl);
+      audio.loop = true;
+      audio.volume = 0.6;
+      audioRef.current = audio;
+      await audio.play();
+      setSoundEnabled(true);
+    } catch (error) {
+      console.error('Failed to play engine sound:', error);
+    } finally {
+      setSoundLoading(false);
+    }
+  };
+
+  const toggleSound = () => {
+    if (soundEnabled && audioRef.current) {
+      audioRef.current.pause();
+      setSoundEnabled(false);
+    } else {
+      playEngineSound();
+    }
+  };
+
+  // Cleanup audio on unmount
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        URL.revokeObjectURL(audioRef.current.src);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
+          // Fade out audio before completing
+          if (audioRef.current) {
+            const fadeOut = setInterval(() => {
+              if (audioRef.current && audioRef.current.volume > 0.1) {
+                audioRef.current.volume -= 0.1;
+              } else {
+                clearInterval(fadeOut);
+                if (audioRef.current) {
+                  audioRef.current.pause();
+                }
+              }
+            }, 50);
+          }
           setTimeout(onComplete, 300);
           return 100;
         }
@@ -27,6 +109,27 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
       transition={{ duration: 0.5 }}
       className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center overflow-hidden"
     >
+      {/* Sound toggle button */}
+      <motion.button
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.5 }}
+        onClick={toggleSound}
+        className="absolute top-6 right-6 z-50 p-3 rounded-full bg-zinc-800/80 backdrop-blur-sm border border-zinc-700 hover:border-primary/50 hover:bg-zinc-700/80 transition-all group"
+        title={soundEnabled ? "Mute engine sound" : "Play engine sound"}
+      >
+        {soundLoading ? (
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full"
+          />
+        ) : soundEnabled ? (
+          <Volume2 className="w-6 h-6 text-primary" />
+        ) : (
+          <VolumeX className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
+        )}
+      </motion.button>
       {/* Animated race track background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Moving asphalt texture */}
