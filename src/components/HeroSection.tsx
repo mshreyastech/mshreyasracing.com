@@ -1,112 +1,178 @@
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, Instagram } from 'lucide-react';
+import { ArrowRight, Mail, Phone, Instagram, Play, Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import shreyasHero from '@/assets/shreyas-hero.jpg';
+
+const YOUTUBE_VIDEO_ID = 'viQC-6xoJ3E';
+
 export const HeroSection = () => {
-  return <section id="home" className="min-h-screen relative flex items-center overflow-hidden">
-      {/* Background with overlay */}
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    // Check if video loads
+    const timer = setTimeout(() => {
+      if (!videoLoaded) {
+        setVideoLoaded(false);
+      }
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [videoLoaded]);
+
+  return (
+    <section id="home" className="min-h-screen relative flex items-center overflow-hidden">
+      {/* Video/Image Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-transparent z-10" />
-        <div className="absolute right-0 top-0 w-full lg:w-3/5 h-full">
-          <img src={shreyasHero} alt="Shreyas Meenakshisundar" className="w-full h-full object-cover object-top" />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50 z-10" />
+        
+        {/* YouTube Video Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <iframe
+            ref={iframeRef}
+            src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] pointer-events-none"
+            style={{ minWidth: '200%', minHeight: '200%' }}
+            allow="autoplay; encrypted-media"
+            onLoad={() => setVideoLoaded(true)}
+            title="Racing Background Video"
+          />
+          
+          {/* Fallback Image - shows if video doesn't load */}
+          {!videoLoaded && (
+            <img
+              src={shreyasHero}
+              alt="Shreyas Meenakshisundar"
+              className="absolute inset-0 w-full h-full object-cover object-top"
+            />
+          )}
         </div>
+        
+        {/* Overlay gradients */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
       </div>
 
-      {/* Decorative elements */}
+      {/* Video indicator */}
+      {videoLoaded && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute top-24 right-4 z-30 flex items-center gap-2"
+        >
+          <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-border">
+            <Play size={14} className="text-primary" />
+            <span className="text-xs text-muted-foreground uppercase tracking-wider">Live</span>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Decorative racing elements */}
       <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4 z-20">
-        <div className="w-2 h-2 rounded-full bg-primary" />
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-2 h-2 rounded-full bg-primary glow-primary" 
+        />
         <div className="w-[1px] h-24 bg-border" />
         <div className="w-2 h-2 rounded-full bg-muted" />
         <div className="w-[1px] h-24 bg-border" />
-        <div className="w-2 h-2 rounded-full bg-muted" />
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+          className="w-2 h-2 rounded-full bg-accent glow-accent" 
+        />
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 lg:px-8 relative z-20 pt-20">
         <div className="max-w-2xl">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.8
-        }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-primary text-sm font-medium mb-6">
               RACE CAR DRIVER • CHENNAI, INDIA
             </span>
           </motion.div>
 
-          <motion.h1 initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.8,
-          delay: 0.1
-        }} className="font-heading font-bold leading-tight mb-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="font-heading font-bold leading-tight mb-6"
+          >
             <span className="text-5xl md:text-7xl lg:text-8xl text-foreground block">SHREYAS</span>
             <span className="text-xl md:text-2xl lg:text-3xl text-gradient-racing block mt-2">MEENAKSHISUNDAR</span>
           </motion.h1>
 
-          <motion.p initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.8,
-          delay: 0.2
-        }} className="text-lg text-muted-foreground mb-8 max-w-lg font-body">
-            A promising young racing talent from Chennai, whose passion for motorsport 
-            ignited at age five. Competing in MRF MMSC FMSCI Indian National Car Racing 
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-lg text-muted-foreground mb-8 max-w-lg font-body"
+          >
+            A promising young racing talent from Chennai, whose passion for motorsport
+            ignited at age five. Competing in MRF MMSC FMSCI Indian National Car Racing
             Championship with a vision to reach Formula 1.
           </motion.p>
 
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.8,
-          delay: 0.3
-        }} className="flex flex-wrap gap-4">
-            <Button asChild size="lg" className="bg-gradient-racing hover:opacity-90 font-heading uppercase tracking-wider group">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-wrap gap-4"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-racing hover:opacity-90 font-heading uppercase tracking-wider group"
+            >
               <a href="#about">
                 Explore My Journey
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-border hover:border-primary hover:bg-primary/5 font-heading uppercase tracking-wider">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-border hover:border-primary hover:bg-primary/5 font-heading uppercase tracking-wider"
+            >
               <a href="#achievements">View Achievements</a>
             </Button>
           </motion.div>
 
           {/* Social Links */}
-          <motion.div initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          duration: 0.8,
-          delay: 0.5
-        }} className="flex items-center gap-6 mt-12">
-            <a href="mailto:mshreyas2009@gmail.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex items-center gap-6 mt-12"
+          >
+            <a
+              href="mailto:mshreyas2009@gmail.com"
+              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            >
               <Mail size={18} />
               <span className="text-sm hidden sm:inline">mshreyas2009@gmail.com</span>
             </a>
-            <a href="tel:+918220070938" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+            <a
+              href="tel:+918220070938"
+              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            >
               <Phone size={18} />
               <span className="text-sm hidden sm:inline">+91-8220070938</span>
             </a>
-            <a href="https://instagram.com/m_shreyas09" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+            <a
+              href="https://instagram.com/m_shreyas09"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            >
               <Instagram size={18} />
               <span className="text-sm hidden sm:inline">@m_shreyas09</span>
             </a>
@@ -115,16 +181,12 @@ export const HeroSection = () => {
       </div>
 
       {/* Stats bar */}
-      <motion.div initial={{
-      opacity: 0,
-      y: 50
-    }} animate={{
-      opacity: 1,
-      y: 0
-    }} transition={{
-      duration: 0.8,
-      delay: 0.6
-    }} className="absolute bottom-0 left-0 right-0 bg-card/90 backdrop-blur-sm border-t border-border z-20">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="absolute bottom-0 left-0 right-0 bg-card/90 backdrop-blur-sm border-t border-border z-20"
+      >
         <div className="container mx-auto px-4 lg:px-8 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center md:text-left">
@@ -146,5 +208,6 @@ export const HeroSection = () => {
           </div>
         </div>
       </motion.div>
-    </section>;
+    </section>
+  );
 };

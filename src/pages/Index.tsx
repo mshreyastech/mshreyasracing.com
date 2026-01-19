@@ -1,6 +1,8 @@
+import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { Navigation } from '@/components/Navigation';
-import { HeaderSection } from '@/components/HeaderSection';
 import { HeroSection } from '@/components/HeroSection';
+import { PhotoScrollSection } from '@/components/PhotoScrollSection';
 import { MarqueeSection } from '@/components/MarqueeSection';
 import { AboutSection } from '@/components/AboutSection';
 import { CareerSection } from '@/components/CareerSection';
@@ -9,23 +11,36 @@ import { SponsorshipSection } from '@/components/SponsorshipSection';
 import { GallerySection } from '@/components/GallerySection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
+import { LoadingScreen } from '@/components/LoadingScreen';
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
-    <main className="min-h-screen bg-background">
-      <Navigation />
-      <HeaderSection />
-      <HeroSection />
-      <MarqueeSection variant="primary" />
-      <AboutSection />
-      <MarqueeSection variant="secondary" />
-      <CareerSection />
-      <VisionSection />
-      <SponsorshipSection />
-      <GallerySection />
-      <ContactSection />
-      <Footer />
-    </main>
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <LoadingScreen onComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
+
+      {!isLoading && (
+        <main className="min-h-screen bg-background">
+          <Navigation />
+          <HeroSection />
+          <PhotoScrollSection />
+          <MarqueeSection variant="primary" />
+          <AboutSection />
+          <MarqueeSection variant="secondary" />
+          <CareerSection />
+          <VisionSection />
+          <SponsorshipSection />
+          <GallerySection />
+          <ContactSection />
+          <Footer />
+        </main>
+      )}
+    </>
   );
 };
 
