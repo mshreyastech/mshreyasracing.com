@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Trophy, Flag, Medal, Calendar } from 'lucide-react';
 import shreyasRacing1 from '@/assets/shreyas-racing-1.png';
-
+import mvmLogo from '@/assets/mvm-logo.jpg';
 const highlights = [
   {
     championship: 'MRF MMSC FMSCI INCRC 2025 Round 1',
@@ -172,15 +172,15 @@ export const AchievementsSection = () => {
             </div>
 
             {/* Sponsor */}
-            <div className="mt-6 p-4 bg-background/50 rounded-lg border border-border text-center">
+            <div className="mt-6 p-6 bg-background/50 rounded-lg border border-border text-center">
               <span className="text-muted-foreground text-sm uppercase tracking-wider">Current Sponsor</span>
-              <div className="flex items-center justify-center gap-3 mt-3">
+              <div className="flex flex-col items-center justify-center gap-4 mt-4">
                 <img 
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Maharishi_Vidya_Mandir_logo.png/150px-Maharishi_Vidya_Mandir_logo.png" 
+                  src={mvmLogo} 
                   alt="Maharishi Vidya Mandir Logo" 
-                  className="h-12 w-auto"
+                  className="h-20 w-auto object-contain rounded-lg"
                 />
-                <p className="font-heading font-semibold text-foreground">
+                <p className="font-heading font-semibold text-foreground text-lg">
                   MAHARISHI VIDYA MANDIR GROUP OF SCHOOLS (2025)
                 </p>
               </div>
