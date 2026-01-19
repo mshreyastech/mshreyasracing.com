@@ -14,8 +14,8 @@ const seasonResults = [
 ];
 
 const upcomingEvents = [
-  { name: 'RPPL Mumbai Street Race', status: 'Upcoming', icon: '🏎️' },
-  { name: 'RPPL Goa Street Race', status: 'Upcoming', icon: '🏁' },
+  { name: 'MRF MMSC FMSCI INCRC 2026 F2000', status: 'Upcoming', icon: '🏎️' },
+  { name: 'RPPL FIA INDIAN FORMULA 4', status: 'Upcoming', icon: '🏁' },
 ];
 
 const racingCategories = [
@@ -23,8 +23,8 @@ const racingCategories = [
   { name: 'Indian National Car Racing Championship', years: '2025', status: 'Active', color: 'primary' },
   { name: 'Formula Regional', years: 'Target', status: 'Future', color: 'secondary' },
   { name: 'RPPL FIA Indian Formula 4', years: 'Target', status: 'Future', color: 'secondary' },
-  { name: 'Formula 3', years: '', status: 'Goal', color: 'muted' },
-  { name: 'Formula 2', years: '', status: 'Goal', color: 'muted' },
+  { name: 'Formula 3', years: 'Goal', status: 'Goal', color: 'muted' },
+  { name: 'Formula 2', years: 'Goal', status: 'Goal', color: 'muted' },
 ];
 
 export const CareerSection = () => {

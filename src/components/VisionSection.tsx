@@ -2,11 +2,11 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Target } from 'lucide-react';
 
 const careerPath = [
-  { stage: 'Formula LGB 1300', status: 'current', year: '2025' },
-  { stage: 'Indian Formula 4', status: 'next', year: '2026' },
-  { stage: 'F2000', status: 'planned', year: '2026-27' },
-  { stage: 'Formula 3', status: 'future', year: '2028' },
-  { stage: 'Formula 2', status: 'future', year: '2029-30' },
+  { stage: 'Formula LGB 1300', status: 'current', year: '2025-2026' },
+  { stage: 'Indian Formula 4 & F2000', status: 'next', year: '2026-2027' },
+  { stage: 'Formula Regional', status: 'planned', year: '' },
+  { stage: 'Formula 3', status: 'future', year: '' },
+  { stage: 'Formula 2', status: 'future', year: '' },
   { stage: 'Formula 1', status: 'dream', year: 'Goal' },
 ];
 
@@ -94,8 +94,9 @@ export const VisionSection = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
             <Target className="h-8 w-8 text-primary" />
           </div>
-          <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4">
+          <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 flex items-center justify-center gap-3">
             Representing <span className="text-gradient-racing">India</span> Globally
+            <span className="text-3xl">🇮🇳</span>
           </h3>
           <p className="text-muted-foreground font-body text-lg leading-relaxed">
             With dedication, discipline, and the right support, I am committed to becoming 
