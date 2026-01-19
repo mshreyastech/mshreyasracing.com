@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { Flag } from 'lucide-react';
 
 export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [progress, setProgress] = useState(0);
@@ -24,127 +25,326 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, y: -50 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center"
+      className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Racing stripes background */}
+      {/* Animated race track background */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Moving asphalt texture */}
         <motion.div
-          initial={{ x: '-100%' }}
-          animate={{ x: '200%' }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
-          className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"
+          animate={{ y: ['0%', '100%'] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+          className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-900"
+          style={{
+            backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 42px)`,
+          }}
         />
-        <motion.div
-          initial={{ x: '200%' }}
-          animate={{ x: '-100%' }}
-          transition={{ duration: 1.2, repeat: Infinity, ease: 'linear' }}
-          className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent"
-        />
-        <motion.div
-          initial={{ x: '-100%' }}
-          animate={{ x: '200%' }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: 'linear' }}
-          className="absolute top-3/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"
-        />
+        
+        {/* Speed lines */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ y: '-100%', opacity: 0 }}
+            animate={{ y: '200%', opacity: [0, 1, 0] }}
+            transition={{ 
+              duration: 0.8, 
+              repeat: Infinity, 
+              delay: i * 0.15,
+              ease: 'linear'
+            }}
+            className="absolute w-0.5 h-32 bg-gradient-to-b from-transparent via-white to-transparent"
+            style={{ left: `${10 + i * 12}%` }}
+          />
+        ))}
       </div>
 
-      {/* Speedometer-style loader */}
-      <div className="relative mb-8">
-        <motion.div
-          className="w-32 h-32 rounded-full border-4 border-muted relative"
-          style={{
-            background: `conic-gradient(hsl(var(--primary)) ${progress * 3.6}deg, hsl(var(--muted)) 0deg)`,
-          }}
-        >
-          <div className="absolute inset-2 bg-background rounded-full flex items-center justify-center">
-            <motion.span
-              className="text-3xl font-heading font-bold text-primary"
-              key={progress}
-            >
-              {progress}
-            </motion.span>
-          </div>
-        </motion.div>
-        
-        {/* Racing car icon */}
+      {/* Large animated checkered flag background */}
+      <motion.div 
+        className="absolute inset-0 opacity-10"
+        animate={{ rotate: [0, 360] }}
+        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+      >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] grid grid-cols-16 grid-rows-16">
+          {[...Array(256)].map((_, i) => (
+            <div
+              key={i}
+              className={`${(Math.floor(i / 16) + i) % 2 === 0 ? 'bg-white' : 'bg-transparent'}`}
+            />
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Central F1 Car with glow */}
+      <div className="relative mb-8 z-10">
+        {/* Glowing aura */}
         <motion.div
           animate={{ 
-            rotate: progress * 3.6,
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 0.8, 0.5]
           }}
-          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 origin-bottom"
-          style={{ height: '64px' }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="absolute -inset-8 bg-primary/30 rounded-full blur-3xl"
+        />
+        
+        {/* F1 Car SVG */}
+        <motion.div
+          animate={{ 
+            y: [0, -5, 0],
+            rotate: [0, 1, -1, 0]
+          }}
+          transition={{ duration: 0.5, repeat: Infinity }}
+          className="relative"
         >
-          <div className="w-3 h-3 bg-primary rounded-full glow-primary" />
+          <svg viewBox="0 0 120 40" className="w-48 h-16 drop-shadow-[0_0_20px_rgba(255,0,0,0.8)]">
+            {/* Car body */}
+            <path
+              d="M10 25 L25 15 L90 15 L110 20 L110 28 L100 30 L80 30 L75 28 L45 28 L40 30 L20 30 L10 25Z"
+              className="fill-primary"
+            />
+            {/* Cockpit */}
+            <path
+              d="M45 15 L55 10 L65 10 L70 15Z"
+              className="fill-zinc-800"
+            />
+            {/* Front wing */}
+            <path
+              d="M5 22 L15 20 L15 28 L5 30Z"
+              className="fill-primary"
+            />
+            {/* Rear wing */}
+            <path
+              d="M105 10 L115 10 L115 15 L105 15Z"
+              className="fill-zinc-800"
+            />
+            <path
+              d="M103 8 L117 8 L117 10 L103 10Z"
+              className="fill-primary"
+            />
+            {/* Wheels */}
+            <motion.circle
+              cx="30"
+              cy="30"
+              r="8"
+              className="fill-zinc-900 stroke-zinc-600 stroke-2"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 0.3, repeat: Infinity, ease: 'linear' }}
+            />
+            <motion.circle
+              cx="90"
+              cy="28"
+              r="8"
+              className="fill-zinc-900 stroke-zinc-600 stroke-2"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 0.3, repeat: Infinity, ease: 'linear' }}
+            />
+            {/* Wheel spokes */}
+            <circle cx="30" cy="30" r="3" className="fill-zinc-400" />
+            <circle cx="90" cy="28" r="3" className="fill-zinc-400" />
+            {/* Racing number */}
+            <text x="60" y="24" className="fill-white text-[8px] font-bold text-center" textAnchor="middle">SM</text>
+          </svg>
+          
+          {/* Exhaust flames */}
+          <motion.div
+            animate={{ 
+              scaleX: [1, 1.5, 1],
+              opacity: [0.8, 1, 0.8]
+            }}
+            transition={{ duration: 0.1, repeat: Infinity }}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4"
+          >
+            <div className="w-8 h-2 bg-gradient-to-r from-orange-500 via-yellow-400 to-transparent rounded-full blur-sm" />
+            <div className="w-6 h-1 bg-gradient-to-r from-primary via-orange-400 to-transparent rounded-full -mt-1.5 ml-1" />
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* Loading text */}
+      {/* Progress percentage with flags */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-center"
+        className="text-center z-10 relative"
       >
-        <h2 className="font-heading text-2xl text-foreground mb-2">STARTING ENGINE</h2>
-        <p className="text-muted-foreground text-sm uppercase tracking-widest">
-          {progress < 30 && 'Warming up...'}
-          {progress >= 30 && progress < 60 && 'Revving up...'}
-          {progress >= 60 && progress < 90 && 'Full throttle...'}
-          {progress >= 90 && 'Launch mode!'}
-        </p>
-      </motion.div>
-
-      {/* Progress bar styled as race track */}
-      <div className="absolute bottom-12 left-8 right-8">
-        <div className="h-2 bg-muted rounded-full overflow-hidden relative">
-          {/* Track markings */}
-          <div className="absolute inset-0 flex justify-between px-1">
-            {[...Array(20)].map((_, i) => (
-              <div key={i} className="w-px h-full bg-background/30" />
-            ))}
-          </div>
-          
-          {/* Progress fill */}
+        <div className="flex items-center justify-center gap-4 mb-4">
           <motion.div
-            className="h-full bg-gradient-racing rounded-full relative"
-            style={{ width: `${progress}%` }}
+            animate={{ rotate: [-5, 5, -5] }}
+            transition={{ duration: 0.5, repeat: Infinity }}
           >
-            {/* Car indicator */}
-            <motion.div
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-4 h-4 bg-primary rounded-sm rotate-45 glow-primary"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 0.3, repeat: Infinity }}
-            />
+            <Flag className="w-8 h-8 text-primary fill-primary" />
+          </motion.div>
+          <motion.span
+            className="text-6xl font-heading font-bold text-white drop-shadow-[0_0_20px_rgba(255,0,0,0.5)]"
+            key={progress}
+          >
+            {progress}%
+          </motion.span>
+          <motion.div
+            animate={{ rotate: [5, -5, 5] }}
+            transition={{ duration: 0.5, repeat: Infinity }}
+          >
+            <Flag className="w-8 h-8 text-white fill-white" />
           </motion.div>
         </div>
         
-        {/* Start/Finish labels */}
-        <div className="flex justify-between mt-2 text-xs text-muted-foreground uppercase tracking-wider">
-          <span>Start</span>
-          <span>Finish</span>
+        <h2 className="font-heading text-2xl text-foreground mb-2 tracking-wider">
+          {progress < 30 && '🏁 STARTING ENGINE'}
+          {progress >= 30 && progress < 60 && '🔥 REVVING UP'}
+          {progress >= 60 && progress < 90 && '⚡ FULL THROTTLE'}
+          {progress >= 90 && '🚀 LAUNCH MODE!'}
+        </h2>
+        <p className="text-muted-foreground text-sm uppercase tracking-[0.3em]">
+          {progress < 30 && 'Warming up the engine...'}
+          {progress >= 30 && progress < 60 && 'Building power...'}
+          {progress >= 60 && progress < 90 && 'Pushing to the limit...'}
+          {progress >= 90 && 'Ready to race!'}
+        </p>
+      </motion.div>
+
+      {/* Race track progress bar */}
+      <div className="absolute bottom-16 left-8 right-8 z-10">
+        {/* Track with kerbs */}
+        <div className="relative">
+          {/* Red/white kerb top */}
+          <div className="h-2 flex mb-1">
+            {[...Array(40)].map((_, i) => (
+              <div 
+                key={i} 
+                className={`flex-1 ${i % 2 === 0 ? 'bg-primary' : 'bg-white'}`}
+              />
+            ))}
+          </div>
+          
+          {/* Main track surface */}
+          <div className="h-6 bg-zinc-800 rounded relative overflow-hidden">
+            {/* Track texture */}
+            <div className="absolute inset-0 opacity-30">
+              {[...Array(30)].map((_, i) => (
+                <div 
+                  key={i} 
+                  className="absolute top-0 bottom-0 w-px bg-white/20" 
+                  style={{ left: `${(i + 1) * 3.33}%` }}
+                />
+              ))}
+            </div>
+            
+            {/* Progress fill */}
+            <motion.div
+              className="h-full bg-gradient-to-r from-primary via-orange-500 to-yellow-400 relative"
+              style={{ width: `${progress}%` }}
+            >
+              {/* Shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent" />
+            </motion.div>
+            
+            {/* F1 Car on track */}
+            <motion.div
+              className="absolute top-1/2 -translate-y-1/2"
+              style={{ left: `${Math.max(0, progress - 5)}%` }}
+            >
+              <motion.div
+                animate={{ y: [-1, 1, -1] }}
+                transition={{ duration: 0.15, repeat: Infinity }}
+              >
+                <svg viewBox="0 0 40 15" className="w-10 h-4">
+                  <path
+                    d="M2 8 L8 5 L32 5 L38 7 L38 10 L35 11 L28 11 L26 10 L14 10 L12 11 L5 11 L2 8Z"
+                    className="fill-zinc-900"
+                  />
+                  <circle cx="10" cy="11" r="3" className="fill-zinc-700" />
+                  <circle cx="30" cy="10" r="3" className="fill-zinc-700" />
+                </svg>
+              </motion.div>
+            </motion.div>
+          </div>
+          
+          {/* Red/white kerb bottom */}
+          <div className="h-2 flex mt-1">
+            {[...Array(40)].map((_, i) => (
+              <div 
+                key={i} 
+                className={`flex-1 ${i % 2 === 1 ? 'bg-primary' : 'bg-white'}`}
+              />
+            ))}
+          </div>
+        </div>
+        
+        {/* Start/Finish labels with flags */}
+        <div className="flex justify-between mt-3 text-sm text-muted-foreground uppercase tracking-wider font-heading">
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 grid grid-cols-2 grid-rows-2">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className={`${i % 2 === (Math.floor(i/2) % 2) ? 'bg-white' : 'bg-zinc-900'}`} />
+              ))}
+            </div>
+            <span>Start</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span>Finish</span>
+            <div className="w-4 h-4 grid grid-cols-2 grid-rows-2">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className={`${i % 2 === (Math.floor(i/2) % 2) ? 'bg-white' : 'bg-zinc-900'}`} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Checkered flag corners */}
-      <div className="absolute top-0 left-0 w-16 h-16 opacity-20">
-        <div className="grid grid-cols-4 grid-rows-4 w-full h-full">
-          {[...Array(16)].map((_, i) => (
+      {/* Animated checkered flag corners */}
+      <motion.div 
+        className="absolute top-0 left-0 w-24 h-24"
+        animate={{ opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 1, repeat: Infinity }}
+      >
+        <div className="grid grid-cols-6 grid-rows-6 w-full h-full">
+          {[...Array(36)].map((_, i) => (
             <div
               key={i}
-              className={`${(Math.floor(i / 4) + i) % 2 === 0 ? 'bg-foreground' : 'bg-transparent'}`}
+              className={`${(Math.floor(i / 6) + i) % 2 === 0 ? 'bg-white' : 'bg-transparent'}`}
             />
           ))}
         </div>
-      </div>
-      <div className="absolute top-0 right-0 w-16 h-16 opacity-20">
-        <div className="grid grid-cols-4 grid-rows-4 w-full h-full">
-          {[...Array(16)].map((_, i) => (
+      </motion.div>
+      <motion.div 
+        className="absolute top-0 right-0 w-24 h-24"
+        animate={{ opacity: [0.5, 0.3, 0.5] }}
+        transition={{ duration: 1, repeat: Infinity }}
+      >
+        <div className="grid grid-cols-6 grid-rows-6 w-full h-full">
+          {[...Array(36)].map((_, i) => (
             <div
               key={i}
-              className={`${(Math.floor(i / 4) + i) % 2 === 0 ? 'bg-foreground' : 'bg-transparent'}`}
+              className={`${(Math.floor(i / 6) + i) % 2 === 0 ? 'bg-white' : 'bg-transparent'}`}
             />
           ))}
         </div>
-      </div>
+      </motion.div>
+      <motion.div 
+        className="absolute bottom-0 left-0 w-24 h-24"
+        animate={{ opacity: [0.4, 0.6, 0.4] }}
+        transition={{ duration: 1, repeat: Infinity }}
+      >
+        <div className="grid grid-cols-6 grid-rows-6 w-full h-full">
+          {[...Array(36)].map((_, i) => (
+            <div
+              key={i}
+              className={`${(Math.floor(i / 6) + i) % 2 === 0 ? 'bg-white' : 'bg-transparent'}`}
+            />
+          ))}
+        </div>
+      </motion.div>
+      <motion.div 
+        className="absolute bottom-0 right-0 w-24 h-24"
+        animate={{ opacity: [0.6, 0.4, 0.6] }}
+        transition={{ duration: 1, repeat: Infinity }}
+      >
+        <div className="grid grid-cols-6 grid-rows-6 w-full h-full">
+          {[...Array(36)].map((_, i) => (
+            <div
+              key={i}
+              className={`${(Math.floor(i / 6) + i) % 2 === 0 ? 'bg-white' : 'bg-transparent'}`}
+            />
+          ))}
+        </div>
+      </motion.div>
     </motion.div>
   );
 };
