@@ -41,12 +41,8 @@ export const Navigation = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo - Left Corner */}
-          <a href="#home" className="flex items-center gap-2">
-            <img src={smLogo} alt="SM Logo" className="h-12 w-12 rounded-full object-cover border-2 border-primary" />
-            <div className="hidden sm:flex flex-col">
-              <span className="font-heading text-lg font-bold text-foreground leading-tight">SHREYAS</span>
-              <span className="font-heading text-[10px] text-muted-foreground tracking-widest">MEENAKSHI SUNDAR</span>
-            </div>
+          <a href="#home" className="flex items-center">
+            <img src={smLogo} alt="SM Logo" className="h-14 w-14 rounded-full object-cover border-2 border-primary glow-primary" />
           </a>
 
           {/* Desktop Navigation - Centered */}
