@@ -13,12 +13,8 @@ export const Footer = () => {
         }} viewport={{
           once: true
         }}>
-            <div className="flex items-center gap-3 mb-2">
-              <img src="/sm-logo.jpg" alt="SM Logo" className="h-12 w-12 rounded-full object-cover" />
-              <div className="flex flex-col">
-                <span className="text-2xl font-heading font-bold text-foreground leading-none">SHREYAS</span>
-                <span className="text-sm font-heading text-muted-foreground leading-none mt-0.5">MEENAKSHISUNDAR</span>
-              </div>
+            <div className="flex items-center mb-2">
+              <img src="/sm-logo.jpg" alt="SM Logo" className="h-24 w-24 rounded-full object-cover border-3 border-primary shadow-[0_0_20px_rgba(255,0,0,0.6),0_0_40px_rgba(255,0,0,0.4)] hover:shadow-[0_0_30px_rgba(255,0,0,0.8),0_0_60px_rgba(255,0,0,0.5)] transition-shadow duration-300" />
             </div>
             <p className="text-muted-foreground text-sm font-body">
               Race Car Driver • Chennai, India
