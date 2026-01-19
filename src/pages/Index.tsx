@@ -5,6 +5,7 @@ import { HeroSection } from '@/components/HeroSection';
 import { PhotoScrollSection } from '@/components/PhotoScrollSection';
 import { MarqueeSection } from '@/components/MarqueeSection';
 import { AboutSection } from '@/components/AboutSection';
+import { AchievementsSection } from '@/components/AchievementsSection';
 import { CareerSection } from '@/components/CareerSection';
 import { VisionSection } from '@/components/VisionSection';
 import { SponsorshipSection } from '@/components/SponsorshipSection';
@@ -31,6 +32,7 @@ const Index = () => {
           <PhotoScrollSection />
           <MarqueeSection variant="primary" />
           <AboutSection />
+          <AchievementsSection />
           <MarqueeSection variant="secondary" />
           <CareerSection />
           <VisionSection />
