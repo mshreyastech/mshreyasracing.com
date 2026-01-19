@@ -45,7 +45,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo - Left Corner */}
           <a href="#home" className="flex items-center">
-            <img src={smLogo} alt="SM Logo" className="h-20 w-20 rounded-full object-cover border-2 border-primary glow-primary" />
+            <img src={smLogo} alt="SM Logo" className="h-24 w-24 rounded-full object-cover border-3 border-primary shadow-[0_0_20px_rgba(255,0,0,0.6),0_0_40px_rgba(255,0,0,0.4)] hover:shadow-[0_0_30px_rgba(255,0,0,0.8),0_0_60px_rgba(255,0,0,0.5)] transition-shadow duration-300" />
           </a>
 
           {/* Desktop Navigation - Centered */}
