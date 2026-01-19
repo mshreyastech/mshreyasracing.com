@@ -23,7 +23,7 @@ export const HeroSection = () => {
             loop
             playsInline
             onLoadedData={() => setVideoLoaded(true)}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover brightness-125 contrast-110 saturate-110"
           >
             <source src="/videos/hero-banner.mp4" type="video/mp4" />
           </video>
@@ -90,7 +90,7 @@ export const HeroSection = () => {
             className="text-lg text-muted-foreground mb-8 max-w-lg font-body"
           >
             A promising young racing talent from Chennai, whose passion for motorsport
-            ignited at age five. Competing in MRF MMSC FMSCI Indian National Car Racing
+            ignited at age five. Competing in Indian National Car Racing
             Championship with a vision to reach Formula 1.
           </motion.p>
 
@@ -168,7 +168,7 @@ export const HeroSection = () => {
               <div className="text-sm text-muted-foreground uppercase tracking-wider">Years Old</div>
             </div>
             <div className="text-center md:text-left">
-              <div className="text-3xl md:text-4xl font-heading font-bold text-foreground">9+</div>
+              <div className="text-3xl md:text-4xl font-heading font-bold text-foreground">12+</div>
               <div className="text-sm text-muted-foreground uppercase tracking-wider">Career Races</div>
             </div>
             <div className="text-center md:text-left">

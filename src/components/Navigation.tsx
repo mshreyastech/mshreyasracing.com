@@ -14,6 +14,9 @@ const navLinks = [{
   href: '#achievements',
   label: 'Achievements'
 }, {
+  href: '#gallery',
+  label: 'Gallery'
+}, {
   href: '#vision',
   label: 'Vision'
 }, {
@@ -42,7 +45,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo - Left Corner */}
           <a href="#home" className="flex items-center">
-            <img src={smLogo} alt="SM Logo" className="h-14 w-14 rounded-full object-cover border-2 border-primary glow-primary" />
+            <img src={smLogo} alt="SM Logo" className="h-16 w-16 rounded-full object-cover border-2 border-primary glow-primary" />
           </a>
 
           {/* Desktop Navigation - Centered */}

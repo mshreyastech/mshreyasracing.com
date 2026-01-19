@@ -35,12 +35,12 @@ const upcomingRaces = [
     date: '24 – 25 January 2026',
   },
   {
-    event: 'RPPL Mumbai Street Race FLGB F4',
+    event: 'RPPL Mumbai Street Race',
     location: 'Mumbai (Night, FIA Approved)',
     date: 'Date TBA',
   },
   {
-    event: 'RPPL Goa Street FLGB F4',
+    event: 'RPPL Goa Street Race',
     location: 'Goa (FIA Approved)',
     date: 'Date TBA',
   },
@@ -63,7 +63,7 @@ export const AchievementsSection = () => {
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto font-body">
             Competitor in MRF MMSC FMSCI Indian National Car Racing Championship 2025 & JK Tyre Novice Cup 2025. 
-            9 career race starts with all finishes in top 10 places.
+            12+ career race starts with all finishes in top 10 places.
           </p>
         </motion.div>
 
@@ -159,13 +159,13 @@ export const AchievementsSection = () => {
                 <li className="flex items-start gap-3">
                   <Medal className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-muted-foreground font-body text-sm">
-                    MRF MMSC FMSCI INCRC 2026 F2000 - Full Season (incl training & testing)
+                    MRF MMSC FMSCI INCRC 2026 F2000
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Medal className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-muted-foreground font-body text-sm">
-                    RPPL FIA INDIAN FORMULA 4 - Full Season (incl training & testing)
+                    RPPL FIA INDIAN FORMULA 4
                   </span>
                 </li>
               </ul>
@@ -174,9 +174,16 @@ export const AchievementsSection = () => {
             {/* Sponsor */}
             <div className="mt-6 p-4 bg-background/50 rounded-lg border border-border text-center">
               <span className="text-muted-foreground text-sm uppercase tracking-wider">Current Sponsor</span>
-              <p className="font-heading font-semibold text-foreground mt-1">
-                MAHARISHI VIDYA MANDIR GROUP OF SCHOOLS (2025)
-              </p>
+              <div className="flex items-center justify-center gap-3 mt-3">
+                <img 
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Maharishi_Vidya_Mandir_logo.png/150px-Maharishi_Vidya_Mandir_logo.png" 
+                  alt="Maharishi Vidya Mandir Logo" 
+                  className="h-12 w-auto"
+                />
+                <p className="font-heading font-semibold text-foreground">
+                  MAHARISHI VIDYA MANDIR GROUP OF SCHOOLS (2025)
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
