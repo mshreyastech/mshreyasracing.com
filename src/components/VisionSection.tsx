@@ -43,7 +43,7 @@ export const VisionSection = () => {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
             {careerPath.map((step, index) => (
               <motion.div
                 key={step.stage}
@@ -51,7 +51,7 @@ export const VisionSection = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
-                className="flex items-center"
+                className="flex items-center mb-2"
               >
                 <div
                   className={`relative px-4 md:px-6 py-4 md:py-6 rounded-lg text-center min-w-[120px] md:min-w-[150px] ${
