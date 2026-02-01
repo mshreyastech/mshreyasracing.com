@@ -16,6 +16,12 @@ const highlights = [
     type: 'top5',
   },
   {
+    championship: 'MRF MMSC FMSCI INCRC 2025 Round 3 F1300',
+    location: 'Madras International Circuit',
+    result: 'P8',
+    type: 'finish',
+  },
+  {
     championship: 'JK Tyre Novice Cup 2025',
     location: 'Kari Motor Speedway',
     result: 'P5',

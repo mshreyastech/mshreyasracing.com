@@ -6,7 +6,6 @@ import { PhotoScrollSection } from '@/components/PhotoScrollSection';
 import { MarqueeSection } from '@/components/MarqueeSection';
 import { AboutSection } from '@/components/AboutSection';
 import { AchievementsSection } from '@/components/AchievementsSection';
-import { CareerSection } from '@/components/CareerSection';
 import { VisionSection } from '@/components/VisionSection';
 import { SponsorshipSection } from '@/components/SponsorshipSection';
 import { GallerySection } from '@/components/GallerySection';
@@ -84,10 +83,6 @@ const Index = () => {
           
           <ScrollAnimationWrapper animation="scale" duration={0.6}>
             <MarqueeSection variant="secondary" />
-          </ScrollAnimationWrapper>
-          
-          <ScrollAnimationWrapper animation="fadeRight" duration={0.8}>
-            <CareerSection />
           </ScrollAnimationWrapper>
           
           <ScrollAnimationWrapper animation="blur" duration={1}>
