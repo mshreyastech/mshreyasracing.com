@@ -43,7 +43,7 @@ export const VisionSection = () => {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-0">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
             {careerPath.map((step, index) => (
               <motion.div
                 key={step.stage}
@@ -85,7 +85,7 @@ export const VisionSection = () => {
                   </span>
                 </div>
                 {index < careerPath.length - 1 && (
-                  <ArrowRight className="h-5 w-5 text-muted-foreground mx-1 md:mx-2 shrink-0" />
+                  <ArrowRight className="h-5 w-5 text-muted-foreground mx-2 md:mx-4 shrink-0" />
                 )}
               </motion.div>
             ))}
