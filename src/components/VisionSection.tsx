@@ -4,7 +4,7 @@ import { ArrowRight, Target } from "lucide-react";
 const careerPath = [
   { stage: "Formula LGB 1300", status: "current", year: "2025-2026" },
   { stage: "Indian Formula 4 & F2000", status: "next", year: "2026-2027" },
-  { stage: "Formula Regional", status: "planned", year: "Goal" },
+  { stage: "Formula Regional", status: "dream", year: "Goal" },
   { stage: "Formula 3", status: "dream", year: "Goal" },
   { stage: "Formula 2", status: "dream", year: "Goal" },
   { stage: "Formula 1", status: "dream", year: "Goal" },
