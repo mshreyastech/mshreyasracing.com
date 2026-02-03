@@ -16,14 +16,14 @@ const highlights = [
     type: 'top5',
   },
   {
-    championship: 'MRF MMSC FMSCI INCRC 2025 Round 3 F1300',
-    location: 'MMRT',
+    championship: 'MRF MMSC FMSCI INCRC 2025 Round 3',
+    location: 'Madras International Circuit',
     result: 'P8',
     type: 'finish',
   },
   {
-    championship: 'MRF MMSC FMSCI INCRC 2025 Round 4 F1300',
-    location: 'MMRT',
+    championship: 'MRF MMSC FMSCI INCRC 2025 Round 4',
+    location: 'Madras International Circuit',
     result: 'P8',
     type: 'finish',
   },
@@ -39,11 +39,6 @@ const upcomingRaces = [
   {
     event: 'RPPL Mumbai Street Race',
     location: 'Mumbai (Night, FIA Approved)',
-    date: 'Date TBA',
-  },
-  {
-    event: 'RPPL Goa Street Race',
-    location: 'Goa (FIA Approved)',
     date: 'Date TBA',
   },
 ];
