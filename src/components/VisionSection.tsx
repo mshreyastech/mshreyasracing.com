@@ -85,7 +85,7 @@ export const VisionSection = () => {
                   </span>
                 </div>
                 {index < careerPath.length - 1 && (
-                  <ArrowRight className="h-5 w-5 text-muted-foreground mx-2 md:mx-4 shrink-0" />
+                  <ArrowRight className="h-5 w-5 text-green-500 mx-2 md:mx-4 shrink-0" />
                 )}
               </motion.div>
             ))}
