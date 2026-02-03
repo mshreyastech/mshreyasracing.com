@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { HeroSection } from '@/components/HeroSection';
 import { PhotoScrollSection } from '@/components/PhotoScrollSection';
@@ -11,12 +10,9 @@ import { SponsorshipSection } from '@/components/SponsorshipSection';
 import { GallerySection } from '@/components/GallerySection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
-import { LoadingScreen } from '@/components/LoadingScreen';
 import { ScrollAnimationWrapper } from '@/components/ScrollAnimationWrapper';
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
   // Smooth scroll with easing for anchor links
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
@@ -47,20 +43,7 @@ const Index = () => {
   }, []);
 
   return (
-    <>
-      <AnimatePresence mode="wait">
-        {isLoading && (
-          <LoadingScreen onComplete={() => setIsLoading(false)} />
-        )}
-      </AnimatePresence>
-
-      {!isLoading && (
-        <motion.main 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
-          className="min-h-screen bg-background"
-        >
+    <main className="min-h-screen bg-background">
           <Navigation />
           
           <HeroSection />
@@ -102,9 +85,7 @@ const Index = () => {
           </ScrollAnimationWrapper>
           
           <Footer />
-        </motion.main>
-      )}
-    </>
+    </main>
   );
 };
 
