@@ -85,7 +85,7 @@ export const VisionSection = () => {
                   </span>
                 </div>
                 {index < careerPath.length - 1 && (
-                  <ArrowRight className="h-5 w-5 text-green-500 mx-2 md:mx-4 shrink-0" />
+                  <ArrowRight className={`h-5 w-5 mx-2 md:mx-4 shrink-0 ${index === 0 ? 'text-green-500' : 'text-muted-foreground'}`} />
                 )}
               </motion.div>
             ))}
@@ -163,7 +163,12 @@ export const VisionSection = () => {
                 />
               </motion.span>
             </motion.span>{" "}
-            Globally 🇮🇳
+            Globally{" "}
+            <img 
+              src="https://flagcdn.com/w40/in.png" 
+              alt="India Flag" 
+              className="inline-block h-6 w-8 object-contain align-middle"
+            />
           </h3>
           <p className="text-muted-foreground font-body text-lg leading-relaxed">
             With dedication, discipline, and the right support, I am committed to becoming India's next Formula 1 driver
