@@ -63,7 +63,16 @@ export const Navigation = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden p-2 text-foreground">
+          <button 
+            type="button"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
+            className="md:hidden p-3 text-foreground touch-manipulation"
+            aria-label="Toggle menu"
+          >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -82,11 +91,49 @@ export const Navigation = () => {
         height: 0
       }} className="md:hidden bg-card border-b border-border">
             <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
-              {navLinks.map(link => <a key={link.href} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="font-heading text-lg text-foreground hover:text-primary transition-colors uppercase">
+              {navLinks.map(link => (
+                <a 
+                  key={link.href} 
+                  href={link.href} 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    const element = document.querySelector(link.href);
+                    if (element) {
+                      const navHeight = 80;
+                      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                      const offsetPosition = elementPosition - navHeight;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
+                  className="font-heading text-lg text-foreground hover:text-primary transition-colors uppercase py-2 touch-manipulation"
+                >
                   {link.label}
-                </a>)}
+                </a>
+              ))}
               <Button asChild variant="default" className="bg-gradient-racing hover:opacity-90 font-heading uppercase mt-4">
-                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Me</a>
+                <a 
+                  href="#contact" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    const element = document.querySelector('#contact');
+                    if (element) {
+                      const navHeight = 80;
+                      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                      const offsetPosition = elementPosition - navHeight;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
+                >
+                  Contact Me
+                </a>
               </Button>
             </div>
           </motion.div>}
