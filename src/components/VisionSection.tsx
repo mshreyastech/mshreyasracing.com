@@ -163,12 +163,7 @@ export const VisionSection = () => {
                 />
               </motion.span>
             </motion.span>{" "}
-            Globally{" "}
-            <img 
-              src="https://flagcdn.com/w40/in.png" 
-              alt="India Flag" 
-              className="inline-block h-6 w-8 object-contain align-middle"
-            />
+            Globally
           </h3>
           <p className="text-muted-foreground font-body text-lg leading-relaxed">
             With dedication, discipline, and the right support, I am committed to becoming India's next Formula 1 driver
