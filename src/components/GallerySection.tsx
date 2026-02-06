@@ -1,56 +1,55 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import racing1 from '@/assets/racing1.jpeg';
-import racing2 from '@/assets/racing2.jpeg';
-import racing3 from '@/assets/racing3.jpeg';
-import racing4 from '@/assets/racing4.jpeg';
-import racing5 from '@/assets/racing5.jpeg';
-import pic from '@/assets/pic.jpeg';
-import pic2 from '@/assets/pic2.jpeg';
-import profile from '@/assets/profile.jpeg';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import racing1 from "@/assets/racing1.jpeg";
+import racing2 from "@/assets/racing2.jpeg";
+import racing3 from "@/assets/racing3.jpeg";
+import racing4 from "@/assets/racing4.jpeg";
+import racing5 from "@/assets/racing5.jpeg";
+import pic from "@/assets/pic.jpeg";
+import pic2 from "@/assets/pic2.jpeg";
+import profile from "@/assets/profile.jpeg";
 
 const categories = [
-  { id: 'all', label: 'All' },
-  { id: 'race', label: 'Race Days' },
-  { id: 'podium', label: 'Podium Moments' },
-  { id: 'training', label: 'Training & Testing' },
-  { id: 'street', label: 'Street Circuits' },
+  { id: "all", label: "All" },
+  { id: "race", label: "Race Days" },
+  { id: "podium", label: "Podium Moments" },
+  { id: "training", label: "Training & Testing" },
+  { id: "street", label: "Street Circuits" },
 ];
 
 const galleryImages = [
-  { src: racing1, category: 'race', title: 'Race Day Action' },
-  { src: racing2, category: 'race', title: 'On Track' },
-  { src: racing3, category: 'street', title: 'Street Circuit' },
-  { src: racing4, category: 'training', title: 'Testing Session' },
-  { src: racing5, category: 'race', title: 'Championship Round' },
-  { src: pic, category: 'podium', title: 'Victory Moment' },
-  { src: pic2, category: 'training', title: 'Preparation' },
-  { src: profile, category: 'podium', title: 'Celebration' },
+  { src: racing1, category: "race", title: "Race Day Action" },
+  { src: racing2, category: "race", title: "On Track" },
+  { src: racing3, category: "street", title: "Street Circuit" },
+  { src: racing4, category: "training", title: "Testing Session" },
+  { src: racing5, category: "race", title: "Championship Round" },
+  { src: pic, category: "podium", title: "Victory Moment" },
+  { src: pic2, category: "training", title: "Preparation" },
+  { src: profile, category: "podium", title: "Celebration" },
 ];
 
 export const GallerySection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState("all");
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const filteredImages = activeCategory === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === activeCategory);
+  const filteredImages =
+    activeCategory === "all" ? galleryImages : galleryImages.filter((img) => img.category === activeCategory);
 
   const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
     setLightboxOpen(true);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setLightboxOpen(false);
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
   };
 
   const nextImage = () => {
@@ -70,9 +69,7 @@ export const GallerySection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient-racing mb-4">
-            Gallery
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gradient-racing mb-4">Gallery</h2>
           <div className="w-24 h-1 bg-gradient-racing mx-auto rounded-full" />
         </motion.div>
 
@@ -84,25 +81,22 @@ export const GallerySection = () => {
           className="flex flex-wrap justify-center gap-3 mb-10"
         >
           {categories.map((category) => (
-            // <button
-            //   key={category.id}
-            //   onClick={() => setActiveCategory(category.id)}
-            //   className={`px-5 py-2 rounded-full font-medium text-sm uppercase tracking-wider transition-all ${
-            //     activeCategory === category.id
-            //       ? 'bg-gradient-racing text-white'
-            //       : 'bg-muted text-muted-foreground hover:text-foreground'
-            //   }`}
-            // >
-            //   {category.label}
-            // </button>
+            <button
+              key={category.id}
+              onClick={() => setActiveCategory(category.id)}
+              className={`px-5 py-2 rounded-full font-medium text-sm uppercase tracking-wider transition-all ${
+                activeCategory === category.id
+                  ? "bg-gradient-racing text-white"
+                  : "bg-muted text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {category.label}
+            </button>
           ))}
         </motion.div>
 
         {/* Gallery Grid */}
-        <motion.div 
-          layout
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-        >
+        <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <AnimatePresence mode="popLayout">
             {filteredImages.map((image, index) => (
               <motion.div
@@ -115,8 +109,8 @@ export const GallerySection = () => {
                 className="relative aspect-square rounded-xl overflow-hidden cursor-pointer group border border-border"
                 onClick={() => openLightbox(index)}
               >
-                <img 
-                  src={image.src} 
+                <img
+                  src={image.src}
                   alt={image.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -138,13 +132,13 @@ export const GallerySection = () => {
           <h3 className="text-xl font-bold text-foreground font-heading mb-4">Quick View</h3>
           <div className="flex gap-4 overflow-x-auto pb-4 photo-scroll">
             {galleryImages.map((image, index) => (
-              <div 
+              <div
                 key={index}
                 className="flex-shrink-0 w-48 h-32 rounded-lg overflow-hidden cursor-pointer border border-border hover:border-primary transition-colors"
                 onClick={() => openLightbox(index)}
               >
-                <img 
-                  src={image.src} 
+                <img
+                  src={image.src}
                   alt={image.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
@@ -165,7 +159,7 @@ export const GallerySection = () => {
             onClick={closeLightbox}
           >
             {/* Close button */}
-            <button 
+            <button
               className="absolute top-4 right-4 text-white p-2 hover:bg-white/10 rounded-full transition-colors z-10"
               onClick={closeLightbox}
             >
@@ -173,15 +167,21 @@ export const GallerySection = () => {
             </button>
 
             {/* Navigation buttons */}
-            <button 
+            <button
               className="absolute left-4 text-white p-2 hover:bg-white/10 rounded-full transition-colors z-10"
-              onClick={(e) => { e.stopPropagation(); prevImage(); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                prevImage();
+              }}
             >
               <ChevronLeft size={40} />
             </button>
-            <button 
+            <button
               className="absolute right-4 text-white p-2 hover:bg-white/10 rounded-full transition-colors z-10"
-              onClick={(e) => { e.stopPropagation(); nextImage(); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                nextImage();
+              }}
             >
               <ChevronRight size={40} />
             </button>
