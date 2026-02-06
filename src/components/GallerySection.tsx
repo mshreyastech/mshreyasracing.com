@@ -15,9 +15,9 @@ import profile from "@/assets/profile.jpeg";
 const categories = [
   { id: "all", label: "All" },
   { id: "race", label: "Race Days" },
-  { id: "podium", label: "Podium Moments" },
+  // { id: "podium", label: "Podium Moments" },
   { id: "training", label: "Training & Testing" },
-  { id: "street", label: "Street Circuits" },
+  // { id: "street", label: "Street Circuits" },
 ];
 
 const galleryImages = [
