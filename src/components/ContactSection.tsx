@@ -48,7 +48,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-muted-foreground text-sm">Email</p>
-                  <p className="font-heading font-semibold text-foreground">mshreyas2009@gmail.com</p>
+                  <p className="font-heading font-semibold text-foreground">info@mshreyasracing.com</p>
                 </div>
               </a>
 
@@ -57,8 +57,8 @@ export const ContactSection = () => {
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-muted-foreground text-sm">Phone</p>
-                  <p className="font-heading font-semibold text-foreground">+91-8220070938</p>
+                  <p className="text-muted-foreground text-sm">YouTube</p>
+                  <p className="font-heading font-semibold text-foreground">https://www.youtube.com/@ShreyasM_Racing</p>
                 </div>
               </a>
 
