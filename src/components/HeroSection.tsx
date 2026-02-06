@@ -24,7 +24,7 @@ export const HeroSection = () => {
     <section ref={sectionRef} id="home" className="min-h-screen relative flex items-center overflow-hidden">
       {/* Video/Image Background with Parallax */}
       <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY, scale: backgroundScale }}>
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent z-10" />
 
         {/* Video Background */}
         <div className="absolute inset-0 overflow-hidden">
@@ -35,7 +35,7 @@ export const HeroSection = () => {
             loop
             playsInline
             onLoadedData={() => setVideoLoaded(true)}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover brightness-125 contrast-110 saturate-110"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover brightness-150 contrast-125 saturate-125"
           >
             <source src="/videos/hero-banner.mp4" type="video/mp4" />
           </video>
@@ -50,9 +50,9 @@ export const HeroSection = () => {
           )}
         </div>
 
-        {/* Overlay gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
+        {/* Overlay gradients - reduced for better video visibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent z-10" />
       </motion.div>
 
       {/* Decorative racing elements with parallax */}
