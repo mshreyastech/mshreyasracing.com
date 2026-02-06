@@ -1,20 +1,20 @@
-import { useState, useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Mail, Phone, Instagram } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import shreyasHero from '@/assets/shreyas-hero.jpg';
+import { useState, useRef, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Mail, Phone, Instagram } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import shreyasHero from "@/assets/shreyas-hero.jpg";
 
 export const HeroSection = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  
+
   // Parallax scroll effect
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
-  
+
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const backgroundScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
@@ -23,12 +23,9 @@ export const HeroSection = () => {
   return (
     <section ref={sectionRef} id="home" className="min-h-screen relative flex items-center overflow-hidden">
       {/* Video/Image Background with Parallax */}
-      <motion.div 
-        className="absolute inset-0 z-0"
-        style={{ y: backgroundY, scale: backgroundScale }}
-      >
+      <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY, scale: backgroundScale }}>
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50 z-10" />
-        
+
         {/* Video Background */}
         <div className="absolute inset-0 overflow-hidden">
           <video
@@ -42,7 +39,7 @@ export const HeroSection = () => {
           >
             <source src="/videos/hero-banner.mp4" type="video/mp4" />
           </video>
-          
+
           {/* Fallback Image - shows if video doesn't load */}
           {!videoLoaded && (
             <img
@@ -52,40 +49,36 @@ export const HeroSection = () => {
             />
           )}
         </div>
-        
+
         {/* Overlay gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
       </motion.div>
 
       {/* Decorative racing elements with parallax */}
-      <motion.div 
+      <motion.div
         className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4 z-20"
         style={{ y: contentY, opacity }}
       >
-        <motion.div 
+        <motion.div
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-2 h-2 rounded-full bg-primary glow-primary" 
+          className="w-2 h-2 rounded-full bg-primary glow-primary"
         />
         <div className="w-[1px] h-24 bg-border" />
         <div className="w-2 h-2 rounded-full bg-muted" />
         <div className="w-[1px] h-24 bg-border" />
-        <motion.div 
+        <motion.div
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-          className="w-2 h-2 rounded-full bg-accent glow-accent" 
+          className="w-2 h-2 rounded-full bg-accent glow-accent"
         />
       </motion.div>
 
       {/* Content */}
       <div className="container mx-auto px-4 lg:px-8 relative z-20 pt-20">
         <div className="max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-primary text-sm font-medium mb-6">
               RACE CAR DRIVER • CHENNAI, INDIA
             </span>
@@ -107,9 +100,8 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg text-muted-foreground mb-8 max-w-lg font-body"
           >
-            A promising young racing talent from Chennai, whose passion for motorsport
-            ignited at age five. Competing in Indian National Car Racing
-            Championship with a vision to reach Formula 1.
+            A promising young racing talent from Chennai, whose passion for motorsport ignited at age five. Competing in
+            Indian National Car Racing Championship with a vision to reach Formula 1.
           </motion.p>
 
           <motion.div
@@ -139,7 +131,7 @@ export const HeroSection = () => {
           </motion.div>
 
           {/* Social Links */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -168,7 +160,7 @@ export const HeroSection = () => {
               <Instagram size={18} />
               <span className="text-sm hidden sm:inline">@m_shreyas09</span>
             </a>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
 
