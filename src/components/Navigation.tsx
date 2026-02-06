@@ -45,7 +45,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo - Left Corner */}
           <a href="#home" className="flex items-center">
-            <img src={smLogo} alt="SM Logo" className="h-24 w-24 rounded-full object-cover border-2 border-black bg-black" />
+            <img src={smLogo} alt="SM Logo" className="h-24 w-24 rounded-full object-cover border-0 bg-transparent" />
           </a>
 
           {/* Desktop Navigation - Centered */}
