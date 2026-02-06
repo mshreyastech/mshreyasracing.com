@@ -14,7 +14,7 @@ export const Footer = () => {
           once: true
         }}>
             <div className="flex items-center mb-2">
-              <img src="/sm-logo.jpg" alt="SM Logo" className="h-24 w-24 rounded-full object-cover border-2 border-zinc-800 bg-black" />
+              <img src="/sm-logo.jpg" alt="SM Logo" className="h-24 w-24 rounded-full object-cover border-2 border-black bg-black" />
             </div>
             
           </motion.div>
