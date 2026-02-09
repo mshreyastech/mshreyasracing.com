@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, Instagram, MapPin, Send } from 'lucide-react';
+import { Mail, Instagram, MapPin, Send, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 export const ContactSection = () => {
   return <section id="contact" className="py-24 bg-background relative overflow-hidden">
@@ -52,13 +52,13 @@ export const ContactSection = () => {
                 </div>
               </a>
 
-              <a href="tel:+918220070938" className="flex items-center gap-4 p-5 bg-card rounded-lg border border-border hover:border-primary/50 transition-all group">
+              <a href="https://www.youtube.com/@ShreyasM_Racing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-5 bg-card rounded-lg border border-border hover:border-primary/50 transition-all group">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Phone className="h-5 w-5 text-primary" />
+                  <Youtube className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <p className="text-muted-foreground text-sm">YouTube</p>
-                  <p className="font-heading font-semibold text-foreground">https://www.youtube.com/@ShreyasM_Racing</p>
+                  <p className="font-heading font-semibold text-foreground">@ShreyasM_Racing</p>
                 </div>
               </a>
 
