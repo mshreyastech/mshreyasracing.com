@@ -54,12 +54,9 @@ export const Footer = () => {
 
         <div className="section-divider my-8" />
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-muted-foreground text-sm">
+        <div className="flex items-center justify-center text-muted-foreground text-sm">
           <p className="font-body">
             © {currentYear} Shreyas Meenakshisundar. All rights reserved.
-          </p>
-          <p className="font-body flex items-center gap-1">
-            Made with <Heart className="h-4 w-4 text-primary" /> for Indian Motorsport
           </p>
         </div>
       </div>
