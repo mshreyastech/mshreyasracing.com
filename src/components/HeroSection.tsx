@@ -35,7 +35,7 @@ export const HeroSection = () => {
             loop
             playsInline
             onLoadedData={() => setVideoLoaded(true)}
-            className="absolute top-0 left-0 w-full h-full object-cover brightness-125 contrast-110 saturate-110"
+            className="absolute top-0 left-0 w-full h-full object-cover object-center brightness-125 contrast-110 saturate-110"
           >
             <source src="/videos/hero-banner.mp4" type="video/mp4" />
           </video>
@@ -45,14 +45,14 @@ export const HeroSection = () => {
             <img
               src={shreyasHero}
               alt="Shreyas Meenakshisundar"
-              className="absolute inset-0 w-full h-full object-cover object-top"
+              className="absolute inset-0 w-full h-full object-cover object-center"
             />
           )}
         </div>
 
         {/* Overlay gradients - reduced for better video visibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/30 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-background/20 to-transparent z-10" />
       </motion.div>
 
       {/* Decorative racing elements with parallax */}
