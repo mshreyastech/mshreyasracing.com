@@ -40,7 +40,7 @@ export const Footer = () => {
         }} viewport={{
           once: true
         }} className="flex justify-end gap-4">
-            <a href="mailto:mshreyas2009@gmail.com" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
+            <a href="mailto:info@mshreyasracing.com" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
               <Mail className="h-5 w-5" />
             </a>
             <a href="tel:+918220070938" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">

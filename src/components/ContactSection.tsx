@@ -42,7 +42,7 @@ export const ContactSection = () => {
           }} viewport={{
             once: true
           }} className="space-y-6">
-              <a href="mailto:mshreyas2009@gmail.com" className="flex items-center gap-4 p-5 bg-card rounded-lg border border-border hover:border-primary/50 transition-all group">
+              <a href="mailto:info@mshreyasracing.com" className="flex items-center gap-4 p-5 bg-card rounded-lg border border-border hover:border-primary/50 transition-all group">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
@@ -99,7 +99,7 @@ export const ContactSection = () => {
                 motorsport talent. Let's discuss how we can achieve success together.
               </p>
               <Button asChild size="lg" className="bg-gradient-racing hover:opacity-90 font-heading uppercase tracking-wider group w-full">
-                <a href="mailto:mshreyas2009@gmail.com?subject=Sponsorship%20Inquiry%20-%20Shreyas%20Meenakshisundar">
+                <a href="mailto:info@mshreyasracing.com?subject=Sponsorship%20Inquiry%20-%20Shreyas%20Meenakshisundar">
                   <Send className="mr-2 h-5 w-5" />
                   Send Inquiry
                 </a>
