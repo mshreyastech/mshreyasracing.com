@@ -138,11 +138,11 @@ export const HeroSection = () => {
             className="flex items-center gap-6 mt-12"
           >
             <a
-              href="mailto:mshreyas2009@gmail.com"
+              href="mailto:info@mshreyasracing.com"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <Mail size={18} />
-              <span className="text-sm hidden sm:inline">mshreyas2009@gmail.com</span>
+              <span className="text-sm hidden sm:inline">info@mshreyasracing.com</span>
             </a>
             <a
               href="tel:+918220070938"
