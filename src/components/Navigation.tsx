@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import smLogo from '@/assets/sm-logo.jpg';
+import smLogo from '@/assets/sm-logo.png';
 
 const navLinks = [{
   href: '#home',
@@ -45,7 +45,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo - Left Corner */}
           <a href="#home" className="flex items-center">
-            <img src={smLogo} alt="SM Logo" className="h-24 w-24 rounded-full object-cover border-0 bg-transparent" />
+            <img src={smLogo} alt="SM Logo" className="h-20 w-20 object-contain" />
           </a>
 
           {/* Desktop Navigation - Centered */}

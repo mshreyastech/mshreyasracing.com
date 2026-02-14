@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, Instagram, Heart } from 'lucide-react';
+import smLogo from '@/assets/sm-logo.png';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-card border-t border-border">
@@ -14,7 +15,7 @@ export const Footer = () => {
           once: true
         }}>
             <div className="flex items-center mb-2">
-              <img src="/sm-logo.jpg" alt="SM Logo" className="h-24 w-24 rounded-full object-cover border-0 bg-transparent" />
+              <img src={smLogo} alt="SM Logo" className="h-20 w-20 object-contain" />
             </div>
             
           </motion.div>
