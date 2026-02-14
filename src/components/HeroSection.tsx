@@ -21,9 +21,9 @@ export const HeroSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={sectionRef} id="home" className="min-h-screen relative flex items-center overflow-hidden pt-20">
-      {/* Video/Image Background with Parallax - starts below nav */}
-      <motion.div className="absolute top-20 left-0 right-0 bottom-0 z-0" style={{ y: backgroundY, scale: backgroundScale }}>
+    <section ref={sectionRef} id="home" className="h-screen relative flex items-center overflow-hidden">
+      {/* Video/Image Background with Parallax */}
+      <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY, scale: backgroundScale }}>
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent z-10" />
 
         {/* Video Background */}
@@ -35,7 +35,7 @@ export const HeroSection = () => {
             loop
             playsInline
             onLoadedData={() => setVideoLoaded(true)}
-            className="absolute top-0 left-0 w-full h-full object-cover object-center brightness-125 contrast-110 saturate-110"
+            className="absolute top-0 left-0 w-full h-full min-w-full min-h-full object-cover object-center brightness-125 contrast-110 saturate-110"
           >
             <source src="/videos/hero-banner.mp4" type="video/mp4" />
           </video>
