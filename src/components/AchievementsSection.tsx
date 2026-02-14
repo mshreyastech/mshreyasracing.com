@@ -38,7 +38,7 @@ const upcomingRaces = [
   {
     event: "RPPL Mumbai Street Race",
     location: "Mumbai (Night, FIA Approved)",
-    date: "March 21 & 22",
+    date: "March 21-22, 2026",
   },
 ];
 export const AchievementsSection = () => {
