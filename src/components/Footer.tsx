@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, Instagram, Heart } from 'lucide-react';
+import { Mail, Youtube, Instagram, Heart } from 'lucide-react';
 import smLogo from '@/assets/sm-logo.png';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -44,8 +44,8 @@ export const Footer = () => {
             <a href="mailto:info@mshreyasracing.com" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
               <Mail className="h-5 w-5" />
             </a>
-            <a href="tel:+918220070938" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
-              <Phone className="h-5 w-5" />
+            <a href="https://www.youtube.com/@ShreyasM_Racing" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
+              <Youtube className="h-5 w-5" />
             </a>
             <a href="https://instagram.com/m_shreyas09" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
               <Instagram className="h-5 w-5" />

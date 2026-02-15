@@ -2,38 +2,43 @@ import { motion } from "framer-motion";
 import { Trophy, Flag, Medal, Calendar } from "lucide-react";
 import shreyasRacing1 from "@/assets/shreyas-racing-1.png";
 import mvmLogo from "@/assets/mvm-logo.jpg";
+const championshipStanding = {
+  championship: "MRF MMSC FMSCI INCRC 2025 - CHAMPIONSHIP STANDING",
+  result: "P9",
+  type: "finish",
+};
 const highlights = [
   {
-    championship: "MRF MMSC FMSCI INCRC 2025 Round 1",
+    championship: "ROUND 1",
     location: "Kari Motor Speedway",
     result: "P9",
     type: "finish",
   },
   {
-    championship: "MRF MMSC FMSCI INCRC 2025 Round 2",
+    championship: "ROUND 2",
     location: "Madras International Circuit",
     result: "P5",
     type: "top5",
   },
   {
-    championship: "MRF MMSC FMSCI INCRC 2025 Round 3",
+    championship: "ROUND 3",
     location: "Madras International Circuit",
     result: "P8",
     type: "finish",
   },
   {
-    championship: "MRF MMSC FMSCI INCRC 2025 Round 4",
+    championship: "ROUND 4",
     location: "Madras International Circuit",
     result: "P8",
     type: "finish",
-  },
-  {
-    championship: "JK Tyre Novice Cup 2025",
-    location: "Kari Motor Speedway",
-    result: "P5",
-    type: "top5",
   },
 ];
+const jkTyre = {
+  championship: "JK TYRE NOVICE CUP 2025",
+  location: "Kari Motor Speedway",
+  result: "P5",
+  type: "top5",
+};
 const upcomingRaces = [
   {
     event: "RPPL Mumbai Street Race",
@@ -94,24 +99,32 @@ export const AchievementsSection = () => {
             </div>
 
             <div className="space-y-4">
+              {/* Championship Standing Header */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <h4 className="font-heading font-semibold text-foreground">{championshipStanding.championship}</h4>
+                  </div>
+                  <div className="px-4 py-2 rounded-lg font-heading font-bold text-xl bg-primary/10 text-primary">
+                    {championshipStanding.result}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Individual Rounds */}
               {highlights.map((race, index) => (
                 <motion.div
                   key={index}
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  transition={{
-                    delay: index * 0.1,
-                  }}
-                  className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all ml-4"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
@@ -121,14 +134,34 @@ export const AchievementsSection = () => {
                         {race.location}
                       </p>
                     </div>
-                    <div
-                      className={`px-4 py-2 rounded-lg font-heading font-bold text-xl ${race.type === "top5" ? "bg-primary/10 text-primary" : "bg-muted text-foreground"}`}
-                    >
+                    <div className={`px-4 py-2 rounded-lg font-heading font-bold text-xl ${race.type === "top5" ? "bg-primary/10 text-primary" : "bg-muted text-foreground"}`}>
                       {race.result}
                     </div>
                   </div>
                 </motion.div>
               ))}
+
+              {/* JK Tyre Novice Cup */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all mt-6"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <h4 className="font-heading font-semibold text-foreground">{jkTyre.championship}</h4>
+                    <p className="text-muted-foreground text-sm mt-1 flex items-center gap-2">
+                      <Flag className="h-3 w-3" />
+                      {jkTyre.location}
+                    </p>
+                  </div>
+                  <div className="px-4 py-2 rounded-lg font-heading font-bold text-xl bg-primary/10 text-primary">
+                    {jkTyre.result}
+                  </div>
+                </div>
+              </motion.div>
             </div>
 
             {/* Image */}
