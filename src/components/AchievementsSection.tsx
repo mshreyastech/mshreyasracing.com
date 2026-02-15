@@ -104,7 +104,7 @@ export const AchievementsSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all"
+                className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all min-h-[72px] flex items-center"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
@@ -124,7 +124,7 @@ export const AchievementsSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all ml-4"
+                  className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all ml-4 min-h-[72px] flex items-center"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
@@ -147,7 +147,7 @@ export const AchievementsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all mt-6"
+                className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all mt-6 min-h-[72px] flex items-center"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
