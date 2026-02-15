@@ -106,7 +106,7 @@ export const AchievementsSection = () => {
                 viewport={{ once: true }}
                 className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all min-h-[72px] flex items-center"
               >
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start justify-between gap-4 w-full">
                   <div className="flex-1">
                     <h4 className="font-heading font-semibold text-foreground">{championshipStanding.championship}</h4>
                   </div>
@@ -126,7 +126,7 @@ export const AchievementsSection = () => {
                   transition={{ delay: index * 0.1 }}
                   className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all ml-4 min-h-[72px] flex items-center"
                 >
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start justify-between gap-4 w-full">
                     <div className="flex-1">
                       <h4 className="font-heading font-semibold text-foreground">{race.championship}</h4>
                       <p className="text-muted-foreground text-sm mt-1 flex items-center gap-2">
@@ -149,7 +149,7 @@ export const AchievementsSection = () => {
                 transition={{ delay: 0.5 }}
                 className="bg-background/50 p-5 rounded-lg border border-border hover:border-primary/30 transition-all mt-6 min-h-[72px] flex items-center"
               >
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start justify-between gap-4 w-full">
                   <div className="flex-1">
                     <h4 className="font-heading font-semibold text-foreground">{jkTyre.championship}</h4>
                     <p className="text-muted-foreground text-sm mt-1 flex items-center gap-2">
