@@ -50,7 +50,7 @@ export const Navigation = () => {
 
           {/* Desktop Navigation - Centered */}
           <div className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
-            {navLinks.map(link => <a key={link.href} href={link.href} className="font-heading text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">
+            {navLinks.map(link => <a key={link.href} href={link.href} className="font-heading text-sm text-white font-bold hover:text-primary transition-colors uppercase tracking-wider">
                 {link.label}
               </a>)}
           </div>
@@ -89,7 +89,7 @@ export const Navigation = () => {
       }} exit={{
         opacity: 0,
         height: 0
-      }} className="md:hidden bg-card border-b border-border">
+      }} className="md:hidden bg-[#000000] border-b border-border">
             <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
               {navLinks.map(link => (
                 <a 
@@ -109,7 +109,7 @@ export const Navigation = () => {
                       });
                     }
                   }}
-                  className="font-heading text-lg text-foreground hover:text-primary transition-colors uppercase py-2 touch-manipulation"
+                  className="font-heading text-lg text-white font-bold hover:text-primary transition-colors uppercase py-2 touch-manipulation"
                 >
                   {link.label}
                 </a>
