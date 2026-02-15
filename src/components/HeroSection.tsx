@@ -21,7 +21,7 @@ export const HeroSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={sectionRef} id="home" className="h-screen relative flex items-center overflow-hidden">
+    <section ref={sectionRef} id="home" className="h-[100svh] relative flex items-center overflow-hidden pt-20">
       {/* Video/Image Background with Parallax */}
       <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY, scale: backgroundScale }}>
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent z-10" />
