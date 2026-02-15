@@ -3,7 +3,7 @@ import { Mail, Youtube, Instagram, Heart } from 'lucide-react';
 import smLogo from '@/assets/sm-logo.png';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-  return <footer className="bg-card border-t border-border">
+  return <footer className="bg-[#000000] border-t border-border">
       <div className="container mx-auto px-4 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           {/* Logo & Tagline */}
