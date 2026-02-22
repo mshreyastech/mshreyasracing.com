@@ -4,8 +4,8 @@ import smLogo from '@/assets/sm-logo.png';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-[#000000] border-t border-border">
-      <div className="container mx-auto px-4 lg:px-8 py-2">
-        <div className="grid md:grid-cols-3 gap-4 items-center">
+      <div className="container mx-auto px-4 lg:px-8 py-2 overflow-hidden">
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-4 items-center">
           {/* Logo & Tagline */}
           <motion.div initial={{
           opacity: 0
@@ -40,7 +40,7 @@ export const Footer = () => {
           opacity: 1
         }} viewport={{
           once: true
-        }} className="flex justify-end gap-4">
+        }} className="flex justify-center md:justify-end gap-4">
             <a href="mailto:info@mshreyasracing.com" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
               <Mail className="h-5 w-5" />
             </a>
