@@ -4,8 +4,8 @@ import smLogo from '@/assets/sm-logo.png';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-[#000000] border-t border-border">
-      <div className="container mx-auto px-4 lg:px-8 py-4">
-        <div className="grid md:grid-cols-3 gap-8 items-center">
+      <div className="container mx-auto px-4 lg:px-8 py-2">
+        <div className="grid md:grid-cols-3 gap-4 items-center">
           {/* Logo & Tagline */}
           <motion.div initial={{
           opacity: 0
@@ -28,7 +28,7 @@ export const Footer = () => {
         }} viewport={{
           once: true
         }} className="flex justify-center gap-6">
-            {['Home', 'About', 'Achievements', 'Vision', 'Contact'].map(link => <a key={link} href={`#${link.toLowerCase()}`} className="text-muted-foreground hover:text-primary transition-colors font-heading uppercase text-sm tracking-wider">
+            {['Home', 'About', 'Achievements', 'Vision', 'Contact'].map(link => <a key={link} href={`#${link.toLowerCase()}`} className="text-muted-foreground hover:text-primary transition-colors font-heading uppercase text-sm tracking-wider font-bold">
                 {link}
               </a>)}
           </motion.div>
@@ -53,13 +53,13 @@ export const Footer = () => {
           </motion.div>
         </div>
 
-        <div className="section-divider my-8" />
+        <div className="section-divider my-3" />
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-muted-foreground text-sm">
-          <p className="font-body">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-muted-foreground text-sm">
+          <p className="font-body font-bold">
             © {currentYear} Shreyas Meenakshisundar. All rights reserved.
           </p>
-          <p className="font-body flex items-center gap-1">
+          <p className="font-body font-bold flex items-center gap-1">
             Made with <Heart className="h-4 w-4 text-primary" /> for Indian Motorsport
           </p>
         </div>
