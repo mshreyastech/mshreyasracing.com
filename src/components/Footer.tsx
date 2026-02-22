@@ -27,8 +27,8 @@ export const Footer = () => {
           opacity: 1
         }} viewport={{
           once: true
-        }} className="flex justify-center gap-6">
-            {['Home', 'About', 'Achievements', 'Vision', 'Contact'].map(link => <a key={link} href={`#${link.toLowerCase()}`} className="text-muted-foreground hover:text-primary transition-colors font-heading uppercase text-sm tracking-wider font-bold">
+        }} className="flex justify-center flex-wrap gap-4 md:gap-6">
+            {['Home', 'About', 'Achievements', 'Vision', 'Contact'].map(link => <a key={link} href={`#${link.toLowerCase()}`} className="text-muted-foreground hover:text-primary transition-colors font-heading uppercase text-xs md:text-sm tracking-wider font-bold">
                 {link}
               </a>)}
           </motion.div>
