@@ -4,7 +4,7 @@ import smLogo from '@/assets/sm-logo.png';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-[#000000] border-t border-border">
-      <div className="container mx-auto px-4 lg:px-8 py-12">
+      <div className="container mx-auto px-4 lg:px-8 py-4">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           {/* Logo & Tagline */}
           <motion.div initial={{

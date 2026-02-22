@@ -110,7 +110,7 @@ export const AchievementsSection = () => {
                   <div className="flex-1">
                     <h4 className="font-heading font-semibold text-foreground">{championshipStanding.championship}</h4>
                   </div>
-                  <div className="px-4 py-2 rounded-lg font-heading font-bold text-xl bg-primary/10 text-primary">
+                  <div className="px-4 py-2 rounded-lg font-heading font-bold text-xl bg-muted text-white">
                     {championshipStanding.result}
                   </div>
                 </div>
@@ -134,7 +134,7 @@ export const AchievementsSection = () => {
                         {race.location}
                       </p>
                     </div>
-                    <div className={`px-4 py-2 rounded-lg font-heading font-bold text-xl ${race.type === "top5" ? "bg-primary/10 text-primary" : "bg-muted text-foreground"}`}>
+                    <div className="px-4 py-2 rounded-lg font-heading font-bold text-xl bg-muted text-white">
                       {race.result}
                     </div>
                   </div>
@@ -157,7 +157,7 @@ export const AchievementsSection = () => {
                       {jkTyre.location}
                     </p>
                   </div>
-                  <div className="px-4 py-2 rounded-lg font-heading font-bold text-xl bg-primary/10 text-primary">
+                  <div className="px-4 py-2 rounded-lg font-heading font-bold text-xl bg-muted text-white">
                     {jkTyre.result}
                   </div>
                 </div>
@@ -233,6 +233,14 @@ export const AchievementsSection = () => {
                 <li className="flex items-start gap-3">
                   <Medal className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-muted-foreground font-body text-sm">RPPL FIA INDIAN FORMULA 4</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Medal className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground font-body text-sm">JK FLGB F4</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Medal className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground font-body text-sm">MRF F1300</span>
                 </li>
               </ul>
             </div>
