@@ -55,25 +55,6 @@ export const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-background/20 to-transparent z-10" />
       </motion.div>
 
-      {/* Decorative racing elements with parallax */}
-      <motion.div
-        className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4 z-20"
-        style={{ y: contentY, opacity }}
-      >
-        <motion.div
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-2 h-2 rounded-full bg-primary glow-primary"
-        />
-        <div className="w-[1px] h-24 bg-border" />
-        <div className="w-2 h-2 rounded-full bg-muted" />
-        <div className="w-[1px] h-24 bg-border" />
-        <motion.div
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-          className="w-2 h-2 rounded-full bg-accent glow-accent"
-        />
-      </motion.div>
 
       {/* Content */}
       <div className="container mx-auto px-4 lg:px-8 relative z-20 pt-8">
