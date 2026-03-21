@@ -39,13 +39,7 @@ const jkTyre = {
   result: "P5",
   type: "top5",
 };
-const upcomingRaces = [
-  {
-    event: "RPPL Mumbai Street Race",
-    location: "Mumbai (Night, FIA Approved)",
-    date: "March 21-22, 2026",
-  },
-];
+const upcomingRaces: { event: string; location: string; date: string }[] = [];
 export const AchievementsSection = () => {
   return (
     <section id="achievements" className="py-24 bg-card">
