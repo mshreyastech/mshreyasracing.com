@@ -4,8 +4,9 @@ import racing2 from '@/assets/racing2.jpeg';
 import racing3 from '@/assets/racing3.jpeg';
 import racing4 from '@/assets/racing4.jpeg';
 import racing5 from '@/assets/racing5.jpeg';
+import racing6 from '@/assets/racing6.jpg';
 
-const photos = [racing1, racing2, racing3, racing4, racing5, racing1, racing2, racing3, racing4, racing5];
+const photos = [racing1, racing2, racing3, racing4, racing5, racing1, racing2, racing3, racing4, racing5, racing6];
 
 export const PhotoScrollSection = () => {
   return (
