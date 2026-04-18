@@ -9,6 +9,7 @@ import racing3 from "@/assets/racing3.jpeg";
 import racing4 from "@/assets/racing4.jpeg";
 import racing5 from "@/assets/racing5.jpeg";
 import racing6 from "@/assets/racing6.jpg";
+import racing7 from "@/assets/racing7.jpg";
 import pic from "@/assets/pic.jpeg";
 import pic2 from "@/assets/pic2.jpeg";
 import profile from "@/assets/profile.jpeg";
@@ -26,8 +27,9 @@ const galleryImages = [
   { src: racing2, category: "race", title: "On Track" },
   { src: racing3, category: "street", title: "Street Circuit" },
   { src: racing4, category: "training", title: "Testing Session" },
-  { src: racing6, category: "training", title: "Testing Session" },
   { src: racing5, category: "race", title: "Championship Round" },
+  { src: racing6, category: "training", title: "Testing Session" },
+  { src: racing7, category: "training", title: "Testing Session" },
   { src: pic, category: "podium", title: "Victory Moment" },
   { src: pic2, category: "training", title: "Preparation" },
   { src: profile, category: "podium", title: "Celebration" },
