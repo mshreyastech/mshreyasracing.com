@@ -10,6 +10,11 @@ import racing4 from "@/assets/racing4.jpeg";
 import racing5 from "@/assets/racing5.jpeg";
 import racing6 from "@/assets/racing6.jpg";
 import racing7 from "@/assets/racing7.jpg";
+import racing8 from "@/assets/racing8.jpg";
+import racing9 from "@/assets/racing9.jpg";
+import racing10 from "@/assets/racing10.jpg";
+import racing11 from "@/assets/racing11.jpg";
+import racing12 from "@/assets/racing12.jpg";
 import pic from "@/assets/pic.jpeg";
 import pic2 from "@/assets/pic2.jpeg";
 import profile from "@/assets/profile.jpeg";
@@ -23,16 +28,24 @@ const categories = [
 ];
 
 const galleryImages = [
-  { src: racing1, category: "race", title: "Race Day Action" },
-  { src: racing2, category: "race", title: "On Track" },
-  { src: racing3, category: "street", title: "Street Circuit" },
-  { src: racing4, category: "training", title: "Testing Session" },
-  { src: racing5, category: "race", title: "Championship Round" },
-  { src: racing6, category: "training", title: "Testing Session" },
-  { src: racing7, category: "training", title: "Testing Session" },
-  { src: pic, category: "podium", title: "Victory Moment" },
-  { src: pic2, category: "training", title: "Preparation" },
-  { src: profile, category: "podium", title: "Celebration" },
+  { src: racing1, category: "race"},
+  { src: racing2, category: "race"},
+  { src: racing3, category: "race"},
+  { src: racing4, category: "race"},
+  { src: racing5, category: "race"},
+  { src: pic, category: "race"},
+  { src: pic2, category: "race"},
+  { src: racing6, category: "training"},
+  { src: racing7, category: "training"},
+  { src: racing8, category: "training"},
+  { src: racing9, category: "training"},
+  { src: racing10, category: "training"},
+  { src: racing11, category: "training"},
+  { src: racing12, category: "training"},
+  //{ src: pic, category: "race"},
+  //{ src: pic2, category: "race"},
+  //{ src: profile, category: "race"},
+  { src: profile, category: "race", title: "" },
 ];
 
 export const GallerySection = () => {
