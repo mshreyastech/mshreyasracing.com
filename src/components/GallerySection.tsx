@@ -35,6 +35,7 @@ const galleryImages = [
   { src: racing5, category: "race"},
   { src: pic, category: "race"},
   { src: pic2, category: "race"},
+  { src: profile, category: "race", title: "" },
   { src: racing6, category: "training"},
   { src: racing7, category: "training"},
   { src: racing8, category: "training"},
@@ -45,7 +46,7 @@ const galleryImages = [
   //{ src: pic, category: "race"},
   //{ src: pic2, category: "race"},
   //{ src: profile, category: "race"},
-  { src: profile, category: "race", title: "" },
+  //{ src: profile, category: "race", title: "" },
 ];
 
 export const GallerySection = () => {
