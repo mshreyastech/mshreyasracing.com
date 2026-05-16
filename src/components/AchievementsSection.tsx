@@ -64,7 +64,7 @@ export const AchievementsSection = () => {
             RACE <span className="text-gradient-racing">HIGHLIGHTS</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto font-body">
-            Competitor in MRF MMSC FMSCI Indian National Car Racing Championship 2025 & JK Tyre Novice Cup 2025. 12+
+            Competitor in MRF MMSC FMSCI Indian National Car Racing Championship 2025 & JK Tyre Novice Cup 2025. 15+
             career race starts with all finishes in top 10 places.
           </p>
         </motion.div>

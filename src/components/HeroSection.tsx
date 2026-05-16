@@ -159,15 +159,15 @@ export const HeroSection = () => {
               <div className="text-sm text-muted-foreground uppercase tracking-wider">Years Old</div>
             </div>
             <div className="text-center md:text-left">
-              <div className="text-3xl md:text-4xl font-heading font-bold text-foreground">12+</div>
+              <div className="text-3xl md:text-4xl font-heading font-bold text-foreground">15+</div>
               <div className="text-sm text-muted-foreground uppercase tracking-wider">Career Races</div>
             </div>
             <div className="text-center md:text-left">
-              <div className="text-3xl md:text-4xl font-heading font-bold text-foreground">700+</div>
+              <div className="text-3xl md:text-4xl font-heading font-bold text-foreground">750+</div>
               <div className="text-sm text-muted-foreground uppercase tracking-wider">Laps Completed</div>
             </div>
             <div className="text-center md:text-left">
-              <div className="text-3xl md:text-4xl font-heading font-bold text-foreground">100+</div>
+              <div className="text-3xl md:text-4xl font-heading font-bold text-foreground">200+</div>
               <div className="text-sm text-muted-foreground uppercase tracking-wider">Hours on Track</div>
             </div>
           </div>
